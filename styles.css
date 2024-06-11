@@ -1,0 +1,305 @@
+/* styles.css */
+
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1.05rem;
+  line-height: 1.5; /* Improves readability */
+  /* background-color: #eed9cc;
+  background-color: #d5a193;
+  background-color: #a46b5f;
+  background-color: #76433e;
+  background-color: #3e3935; */
+}
+
+body {
+  background-color: #eed9cc;
+  color: #3e3935;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+
+.banner {
+  width: 100%;
+  position: relative;
+  padding-top: 10%;
+}
+
+.banner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image covers the banner area */
+}
+
+/* NAVIGATION BAR */
+
+nav {
+  position: sticky;
+  top: -1px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #d5a193;
+  transition: top 0.3s;
+  z-index: 5;
+}
+
+#logo {
+  width: 50px;
+  margin: 5px 0 0 5px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+nav ul li {
+  display: inline-flex;
+}
+
+nav ul li a {
+  color: #76433e;
+  font-size: 1.2rem;
+  padding: 0.3rem 0.6rem 0.3rem 0.6rem;
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  border: 2px solid #a46b5f; /* Border style on hover */
+  font-size: 1.3rem;
+}
+
+.active-link {
+  color: #3e3935;
+  text-decoration: underline;
+}
+
+.hide {
+  top: -60px; /* Adjust based on the height of your navbar */
+}
+
+/* MAIN */
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #76433e; /* Soft pastel variant of #cdbcb5 */
+}
+
+/* SERVICES */
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* padding: 40px; */
+}
+
+.card {
+  position: relative;
+  width: 200px;
+  margin: 20px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+.card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  transition: background 0.3s;
+}
+
+.card-overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent background */
+  border-radius: 10px;
+  z-index: 1;
+  transition: opacity 0.3s;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: white;
+  margin: 10px 0;
+  z-index: 2;
+  position: absolute;
+  transition: transform 0.3s;
+}
+
+.description {
+  font-size: 14px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 2;
+  position: relative;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card-overlay::before {
+  opacity: 0.9;
+}
+
+.card:hover .description {
+  opacity: 1;
+}
+
+.card:hover .subtitle {
+  transform: translateY(-85px);
+}
+
+/* GALLERY */
+
+.gallery-container {
+  width: 100%;
+  max-width: 800px; /* Set maximum width for the container */
+  margin: 0 auto;
+  overflow-x: hidden; /* Disable horizontal scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent gallery items from wrapping */
+  padding: 30px; /* Add padding for spacing */
+  overflow-x: auto; /* Enable horizontal scrolling for the flex container */
+  scrollbar-width: none; /* Hide scrollbar for browsers supporting the latest spec */
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+
+.gallery::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit (Chrome, Safari, etc.) */
+}
+
+.gallery-item {
+  margin-right: 10px; /* Add margin between gallery items */
+  max-width: 300px; /* Set maximum width for each gallery item */
+  flex: 0 0 auto; /* Prevent gallery items from growing */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Add subtle shadow to gallery items */
+  border-radius: 10px; /*Add border radius to gallery items*/
+  overflow: hidden; /* Hide overflowing content within gallery items */
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px; /* Add border radius to images */
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.1);
+}
+
+/* TESTIMONIAL */
+
+.testimonial {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* BLOG */
+
+.blog-post {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* FOOTER */
+
+.prefoot {
+  display: flex;
+  background-color: #d5a193;
+  justify-content: center;
+}
+
+.prefoot a {
+  text-decoration: none;
+  color: #76433e;
+  font-size: 1.3rem;
+}
+
+footer {
+  background-color: #a46b5f;
+  color: #eed9cc;
+  padding: 1rem;
+  text-align: center;
+}
+
+#visit {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#address,
+#contact,
+.social p {
+  font-size: 1.2rem;
+  padding: 0.6rem;
+}
+
+footer i {
+  font-size: 1.2rem;
+  color: #eed9cc;
+  text-decoration: none;
+  padding: 0.3rem;
+}
